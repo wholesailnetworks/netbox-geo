@@ -22,11 +22,11 @@ class pathView(generic.ObjectView):
 
 class pathListView(generic.ObjectListView):
     queryset = models.Path.objects.all()
-    table = tables.PointTable
+    table = tables.PathTable
 
 class pathEditView(generic.ObjectEditView):
     queryset = models.Path.objects.all()
-    form = forms.PointForm
+    form = forms.PathForm
 
 class pathDeleteView(generic.ObjectDeleteView):
     queryset = models.Path.objects.all()
@@ -36,11 +36,11 @@ class polygonView(generic.ObjectView):
 
 class polygonListView(generic.ObjectListView):
     queryset = models.Polygon.objects.all()
-    table = tables.PointTable
+    table = tables.PolygonTable
 
 class polygonEditView(generic.ObjectEditView):
     queryset = models.Polygon.objects.all()
-    form = forms.PointForm
+    form = forms.PolygonForm
 
 class polygonDeleteView(generic.ObjectDeleteView):
     queryset = models.Polygon.objects.all()
