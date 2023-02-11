@@ -77,6 +77,11 @@ class Path(NetBoxModel):
         null=True
     )
     path = models.LineStringField()
+    file = models.FileField(
+        blank=True,
+        null=True,
+        upload_to="geo-import"
+    )
     class Meta:
         verbose_name = 'Path'
         verbose_name_plural = 'Path'

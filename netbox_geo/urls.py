@@ -1,11 +1,11 @@
-from django.urls import path
-
+from django.urls import path, include
+from django.contrib import admin
 from netbox.views.generic import ObjectChangeLogView
 from . import models, views
 
 
 urlpatterns = (
-
+    path('admin/', admin.site.urls),
     path('point/', views.pointListView.as_view(), name='point_list'),
     path('point/add/', views.pointEditView.as_view(), name='point_add'),
     path('point/<int:pk>/', views.pointView.as_view(), name='point'),
