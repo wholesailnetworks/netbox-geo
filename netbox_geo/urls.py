@@ -6,14 +6,6 @@ from . import models, views
 
 urlpatterns = (
 
-    path('geos/', views.geoListView.as_view(), name='geo_list'),
-    path('geos/add/', views.geoEditView.as_view(), name='geo_add'),
-    path('geos/<int:pk>/', views.geoView.as_view(), name='geo'),
-    path('geos/<int:pk>/edit/', views.geoEditView.as_view(), name='geo_edit'),
-    path('geos/<int:pk>/delete/', views.geoDeleteView.as_view(), name='geo_delete'),
-    path('geos/<int:pk>/changelog/', ObjectChangeLogView.as_view(), name='geo_changelog', kwargs={
-        'model': models.geo
-    }),
     path('point/', views.pointListView.as_view(), name='point_list'),
     path('point/add/', views.pointEditView.as_view(), name='point_add'),
     path('point/<int:pk>/', views.pointView.as_view(), name='point'),
@@ -22,5 +14,22 @@ urlpatterns = (
     path('point/<int:pk>/changelog/', ObjectChangeLogView.as_view(), name='point_changelog', kwargs={
         'model': models.Point
     }),
+    path('path/', views.pathListView.as_view(), name='path_list'),
+    path('path/add/', views.pathEditView.as_view(), name='path_add'),
+    path('path/<int:pk>/', views.pathView.as_view(), name='path'),
+    path('path/<int:pk>/edit/', views.pathEditView.as_view(), name='path_edit'),
+    path('path/<int:pk>/delete/', views.pathDeleteView.as_view(), name='path_delete'),
+    path('path/<int:pk>/changelog/', ObjectChangeLogView.as_view(), name='path_changelog', kwargs={
+        'model': models.Path
+    }),
+    path('polygon/', views.polygonListView.as_view(), name='polygon_list'),
+    path('polygon/add/', views.polygonEditView.as_view(), name='polygon_add'),
+    path('polygon/<int:pk>/', views.polygonView.as_view(), name='polygon'),
+    path('polygon/<int:pk>/edit/', views.polygonEditView.as_view(), name='polygon_edit'),
+    path('polygon/<int:pk>/delete/', views.polygonDeleteView.as_view(), name='polygon_delete'),
+    path('polygon/<int:pk>/changelog/', ObjectChangeLogView.as_view(), name='polygon_changelog', kwargs={
+        'model': models.Polygon
+    }),
+    
 
 )

@@ -1,5 +1,5 @@
 from netbox.filtersets import NetBoxModelFilterSet
-from .models import geo
+from .models import Path, Point, Polygon
 
 
 # class geoFilterSet(NetBoxModelFilterSet):
