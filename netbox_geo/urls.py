@@ -14,5 +14,13 @@ urlpatterns = (
     path('geos/<int:pk>/changelog/', ObjectChangeLogView.as_view(), name='geo_changelog', kwargs={
         'model': models.geo
     }),
+    path('point/', views.pointListView.as_view(), name='point_list'),
+    path('point/add/', views.pointEditView.as_view(), name='point_add'),
+    path('point/<int:pk>/', views.pointView.as_view(), name='point'),
+    path('point/<int:pk>/edit/', views.pointEditView.as_view(), name='point_edit'),
+    path('point/<int:pk>/delete/', views.pointDeleteView.as_view(), name='point_delete'),
+    path('point/<int:pk>/changelog/', ObjectChangeLogView.as_view(), name='point_changelog', kwargs={
+        'model': models.Point
+    }),
 
 )

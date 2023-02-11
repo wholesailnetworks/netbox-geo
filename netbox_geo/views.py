@@ -21,4 +21,30 @@ class geoEditView(generic.ObjectEditView):
 class geoDeleteView(generic.ObjectDeleteView):
     queryset = models.geo.objects.all()
 
+class pointView(generic.ObjectView):
+    queryset = models.Point.objects.all()
 
+class pointListView(generic.ObjectListView):
+    queryset = models.Point.objects.all()
+    table = tables.PointTable
+
+class pointEditView(generic.ObjectEditView):
+    queryset = models.Point.objects.all()
+    form = forms.PointForm
+
+class pointDeleteView(generic.ObjectDeleteView):
+    queryset = models.Point.objects.all()
+
+class pathView(generic.ObjectView):
+    queryset = models.Paths.objects.all()
+
+class pointListView(generic.ObjectListView):
+    queryset = models.Point.objects.all()
+    table = tables.PointTable
+
+class pointEditView(generic.ObjectEditView):
+    queryset = models.Point.objects.all()
+    form = forms.PointForm
+
+class pointDeleteView(generic.ObjectDeleteView):
+    queryset = models.Point.objects.all()

@@ -34,8 +34,8 @@ class Migration(migrations.Migration):
                 ('tenant', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.PROTECT, to='tenancy.tenant')),
             ],
             options={
-                'verbose_name': 'Points',
-                'verbose_name_plural': 'Points',
+                'verbose_name': 'Point',
+                'verbose_name_plural': 'Point',
             },
         ),
     ]
