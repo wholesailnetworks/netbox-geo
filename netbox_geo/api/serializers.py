@@ -18,3 +18,18 @@ class PointSerializer(NetBoxModelSerializer):
     class Meta:
         model = Point
         fields = ('id', 'url', 'display', 'name', 'point', 'description', 'site', 'tenant', 'lat', 'lon', 'tags', 'custom_fields', 'created', 'last_updated',)
+class PathSerializer(NetBoxModelSerializer):
+    url = serializers.HyperlinkedIdentityField(
+        view_name='plugins-api:netbox_geo-api:path-detail'
+    )
+    class Meta:
+        model = Path
+        fields = ('id', 'url', 'display', 'name', 'description', 'a_site', 'z_site', 'circuit', 'tenant', 'path', 'tags', 'custom_fields', 'created', 'last_updated',)
+
+class PolygonSerializer(NetBoxModelSerializer):
+    url = serializers.HyperlinkedIdentityField(
+        view_name='plugins-api:netbox_geo-api:polygon-detail'
+    )
+    class Meta:
+        model = Polygon
+        fields = ('id', 'url', 'display', 'name', 'description', 'sitegroups', 'regions', 'tenant', 'polygon', 'tags', 'custom_fields', 'created', 'last_updated',)
