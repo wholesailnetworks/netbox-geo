@@ -5,7 +5,7 @@
   <div class="row mb-3">
     <div class="col col-md-6">
       <div class="card">
-        <h5 class="card-header">Points</h5>
+        <h5 class="card-header">Polygons</h5>
         <div class="card-body">
           <table class="table table-hover attr-table">
             <tr>
@@ -15,24 +15,32 @@
             <tr>
               <th scope="row">Descriptions</th>
               <td>
+
+            {% comment %} <tr>
+              <th scope="row">Default Action</th>
+              <td>{{ object.get_default_action_display }}</td>
+            </tr>
+            <tr>
+              <th scope="row">Rules</th>
+              <td>{{ object.rules.count }}</td>
+            </tr> {% endcomment %}
           </table>
         </div>
       </div>
       {% include 'inc/panels/custom_fields.html' %}
     </div>
-    
+
     <div class="col col-md-6">
       <div class="card" style="height: 100%;">
         <h5 class="card-header">Map</h5>
-        <div class="card-body d-flex flex-column">  
-
+        <div class="card-body">          
         <link rel="stylesheet" type="text/css" href="{% static 'map.css' %}" />
         <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet/dist/leaflet.css" crossorigin=""/>
         <script src="https://unpkg.com/leaflet/dist/leaflet.js" crossorigin=""></script>
           <div id="map">
           </div>
         <script>
-          const geodata = '{{object.point.geojson}}';
+          const geodata = '{{object.polygon.geojson}}';
         </script>
         <script src="{% static 'map.js' %}"></script>
       </div>

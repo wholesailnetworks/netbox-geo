@@ -30,6 +30,4 @@ urlpatterns = (
     path('polygon/<int:pk>/changelog/', ObjectChangeLogView.as_view(), name='polygon_changelog', kwargs={
         'model': models.Polygon
     }),
-    
-
 )

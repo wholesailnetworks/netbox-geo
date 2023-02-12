@@ -27,7 +27,7 @@ polygon_buttons = [
     )
 ]
 
-menu_items = (
+menuitems = (
     PluginMenuItem(
         link='plugins:netbox_geo:point_list',
         link_text='Points',
@@ -46,6 +46,6 @@ menu_items = (
 )
 menu = PluginMenu(
     label="Geo",
-    groups=(("Geo", menu_items),),
+    groups=(("Geo", menuitems),),
     icon_class="mdi mdi-map",
 )

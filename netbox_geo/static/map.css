@@ -4,7 +4,19 @@ body {
   margin: 0;
 }
 #map {
-  height: 100%;
+  position: relative;
+  border: 1px solid black;
+  border-radius: 8px;
+  height: 400px;  TODO
+  height: 100%;  TODO
   width: 100%;
 }
 
+#map-container { 
+  position: relative; 
+  z-index: 1;
+}
+
+.leaflet-control {z-index: 1}
+.leaflet-top{z-index: 1}
+.leaflet-bottom{z-index: 1}

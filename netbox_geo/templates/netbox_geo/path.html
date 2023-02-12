@@ -1,0 +1,104 @@
+{% extends 'generic/object.html' %}
+{% load static %}
+{% load render_table from django_tables2 %}
+{% load buttons %}
+{% block extra_controls	%}
+<button onclick="download_kmz()" class="btn btn-sm btn-success mdi mdi-download" name="_download_kmz" value="{{ object.pk }}">Download KMZ</button>
+<script src="{% static 'filesaver.js' %}"></script>
+<script>
+  function download_kmz() { 
+    var file = new Blob(["{{ object.path.kml }}"], {type: "text/plain;charset=utf-8"});
+    saveAs(file, "{{ object.name }}.kml");
+  }
+</script>
+{% endblock %}
+{% block extra_tabs %}
+{% comment %} <a class="nav-link" href="/plugins/netbox_geo/path/10/">GeoJSON</a> {% endcomment %}
+{% endblock %}
+{% block content %}
+  <div class="row mb-3">
+    <div class="col col-md-6">
+      <div class="card">
+        <h5 class="card-header">Path</h5>
+        <div class="card-body">
+          <table class="table table-hover attr-table">
+            <tr>
+              <th scope="row">Name</th>
+              <td>{{ object.name }}</td>
+            </tr>
+            <tr>
+              <th scope="row">Description</th>
+              <td>{{ object.description }}</td>
+            </tr>
+            <tr>
+              <th scope="row">A Site</th>
+              {% if object.a_site %}
+              <td><a href="{% url 'dcim:site' pk=object.a_site.pk %}">{{ object.a_site }}</a></td>
+              {% else %}
+              {% endif %}
+            </tr>
+            <tr>
+              <th scope="row">Z Site</th>
+              {% if object.z_site %}
+              <td><a href="{% url 'dcim:site' pk=object.z_site.pk %}">{{ object.z_site }}</a></td>
+              {% else %}
+              {% endif %}
+            </tr>
+            <tr>
+              <th scope="row">Associated Circuit</th>
+              {% if object.circuit %}
+              <td><a href="{% url 'circuits:circuit' pk=object.circuit.pk %}">{{ object.circuit }}</a></td>
+              {% else %}
+              {% endif %}
+            </tr>
+            <tr>
+              <th scope="row">Tenant</th>
+              {% if object.tenant %}
+              <td><a href="{% url 'tenancy:tenant' pk=object.tenant.pk %}">{{ object.tenant }}</a></td>
+              {% else %}
+              {% endif %}
+            </tr>
+            {% comment %} <tr>
+              <th scope="row">Default Action</th>
+              <td>{{ object.get_default_action_display }}</td>
+            </tr>
+            <tr>
+              <th scope="row">Rules</th>
+              <td>{{ object.rules.count }}</td>
+            </tr> {% endcomment %}
+          </table>
+        </div>
+      </div>
+      <div class="card">
+        <h5 class="card-header">Path Information</h5>
+        <div class="card-body">
+          <table class="table table-hover attr-table">
+            <tr>
+              <th scope="row">Length</th>
+              <td>To Be Implemented</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      {% include 'inc/panels/custom_fields.html' %}
+      {% include 'inc/panels/tags.html' %}
+    </div>
+
+    <div class="col col-md-6">
+      <div class="card" style="height: 100%;">
+        <h5 class="card-header">Map</h5>
+        <div class="card-body d-flex flex-column">          
+        <link rel="stylesheet" type="text/css" href="{% static 'map.css' %}" />
+        <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet/dist/leaflet.css" crossorigin=""/>
+        <script src="https://unpkg.com/leaflet/dist/leaflet.js" crossorigin=""></script>
+        <div id="map">
+        </div>
+        <script>
+          const geodata = '{{object.path.geojson}}';
+      </script>
+      <script src="{% static 'map.js' %}"></script>
+      </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

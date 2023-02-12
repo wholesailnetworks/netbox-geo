@@ -3,7 +3,7 @@ from . import views
 
 app_name = 'netbox_geo'
 router = NetBoxRouter()
-router.register('points', views.PointListViewSet)
-router.register('paths', views.PathListViewSet)
+router.register('point', views.PointListViewSet)
+router.register('path', views.PathListViewSet)
 router.register('polygon', views.PolygonListViewSet)
 urlpatterns = router.urls
