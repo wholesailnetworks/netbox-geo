@@ -76,11 +76,9 @@ class Path(NetBoxModel):
         blank=True,
         null=True
     )
-    path = models.LineStringField()
-    file = models.FileField(
+    path = models.LineStringField(
         blank=True,
-        null=True,
-        upload_to="geo-import"
+        null=True
     )
     class Meta:
         verbose_name = 'Path'
@@ -121,7 +119,10 @@ class Polygon(NetBoxModel):
         blank=True,
         null=True
     )
-    polygon = models.PolygonField()
+    polygon = models.PolygonField(
+        blank=True,
+        null=True
+    )
     class Meta:
         verbose_name = 'Polygon'
         verbose_name_plural = 'Polygon'

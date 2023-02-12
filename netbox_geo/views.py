@@ -16,21 +16,13 @@ class pointListView(generic.ObjectListView):
 class pointEditView(generic.ObjectEditView):
     queryset = models.Point.objects.all()
     form = forms.PointForm
+    template_name = 'netbox_geo/pointeditview.html'
 
 class pointDeleteView(generic.ObjectDeleteView):
     queryset = models.Point.objects.all()
 
 class pathView(generic.ObjectView):
     queryset = models.Path.objects.all()
-    def upload_file(request):
-        if request.method == 'POST':
-            form = PathForm(request.POST, request.FILES)
-            if form.is_valid():
-                handle_uploaded_file(request.FILES['file'])
-                return HttpResponseRedirect('/success/url/')
-        else:
-            form = PathForm()
-        return render(request, 'upload.html', {'form': form})
 
 class pathListView(generic.ObjectListView):
     queryset = models.Path.objects.all()

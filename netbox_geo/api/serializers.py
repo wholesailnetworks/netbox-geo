@@ -1,5 +1,5 @@
 from rest_framework import serializers
-
+from django.core.serializers import serialize
 from netbox.api.serializers import NetBoxModelSerializer, WritableNestedSerializer
 from ..models import Point, Path, Polygon
 
@@ -10,8 +10,7 @@ class NestedAccessListSerializer(WritableNestedSerializer):
 
     class Meta:
         model = Point
-        fields = ('id', 'url', 'display', 'name')
-        
+        fields = ('id', 'url', 'display', 'name')        
 class PointSerializer(NetBoxModelSerializer):
     url = serializers.HyperlinkedIdentityField(
         view_name='plugins-api:netbox_geo-api:point-detail'

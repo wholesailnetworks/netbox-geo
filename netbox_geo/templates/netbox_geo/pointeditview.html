@@ -1,0 +1,8 @@
+{% extends 'generic/object_edit.html' %}
+{% block javascript %}
+{% load static %}
+<script src="{% static 'OLMapWidget.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ol3/4.6.5/ol.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/ol3/4.6.5/ol.css" media="all" rel="stylesheet">
+<link href="/static/gis/css/ol3.css" media="all" rel="stylesheet">
+{% endblock javascript %}

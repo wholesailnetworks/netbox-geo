@@ -11,12 +11,12 @@ class PointForm(NetBoxModelForm):
     #     forms.OSMWidget(attrs={'map_width': 800, 'map_height': 500}))
     class Meta:
         model = Point
-        fields = ('name', 'description', 'site', 'tenant', 'lat', 'lon')
+        fields = ('name', 'description', 'point','site', 'tenant', 'lat', 'lon')
 
 class PathForm(NetBoxModelForm):
     class Meta:
         model = Path
-        fields = ('name', 'description', 'a_site', 'z_site', 'circuit', 'tenant', 'file')
+        fields = ('name', 'description', 'a_site', 'z_site', 'circuit', 'tenant')
         
 class PolygonForm(NetBoxModelForm):
     
