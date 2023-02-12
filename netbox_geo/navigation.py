@@ -1,4 +1,4 @@
-from extras.plugins import PluginMenuButton, PluginMenuItem
+from extras.plugins import PluginMenuButton, PluginMenuItem, PluginMenu
 from utilities.choices import ButtonColorChoices
 
 
@@ -43,4 +43,9 @@ menu_items = (
         link_text='Polygons',
         buttons=polygon_buttons
     ),
+)
+menu = PluginMenu(
+    label="Geo",
+    groups=(("Geo", menu_items),),
+    icon_class="mdi mdi-map",
 )

@@ -8,6 +8,7 @@ from .forms import PathForm
 
 class pointView(generic.ObjectView):
     queryset = models.Point.objects.all()
+    template_name = "netbox_geo/point.html"
 
 class pointListView(generic.ObjectListView):
     queryset = models.Point.objects.all()

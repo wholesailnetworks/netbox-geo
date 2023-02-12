@@ -1,6 +1,6 @@
 {% extends 'generic/object.html' %}
+{% load static %}
 {% load render_table from django_tables2 %}
-
 {% block content %}
   <div class="row mb-3">
     <div class="col col-md-6">
@@ -12,6 +12,10 @@
               <th scope="row">Name</th>
               <td>{{ object.name }}</td>
             </tr>
+            <tr>
+              <th scope="row">Descriptions</th>
+              <td>
+
             {% comment %} <tr>
               <th scope="row">Default Action</th>
               <td>{{ object.get_default_action_display }}</td>
@@ -26,8 +30,11 @@
       {% include 'inc/panels/custom_fields.html' %}
     </div>
     <div class="col col-md-6">
-      {% include 'inc/panels/tags.html' %}
-      {% include 'inc/panels/comments.html' %}
+      <link rel="stylesheet" type="text/css" href="{% static 'map.css' %}" />
+      <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet/dist/leaflet.css" crossorigin=""/>
+      <script src="https://unpkg.com/leaflet/dist/leaflet.js" crossorigin=""></script>
+      <div id="map"></div>
+      <script src="{% static 'map.js' %}" defer></script>
     </div>
   </div>
   {% comment %} <div class="row">

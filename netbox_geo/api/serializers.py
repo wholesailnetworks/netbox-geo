@@ -1,3 +1,4 @@
+from rest_framework_gis import serializers as gis_serializers
 from rest_framework import serializers
 from django.core.serializers import serialize
 from netbox.api.serializers import NetBoxModelSerializer, WritableNestedSerializer
@@ -10,11 +11,12 @@ class NestedAccessListSerializer(WritableNestedSerializer):
 
     class Meta:
         model = Point
-        fields = ('id', 'url', 'display', 'name')        
+        fields = ('id', 'url', 'display', 'name') 
 class PointSerializer(NetBoxModelSerializer):
     url = serializers.HyperlinkedIdentityField(
         view_name='plugins-api:netbox_geo-api:point-detail'
     )
+    
     class Meta:
         model = Point
         fields = ('id', 'url', 'display', 'name', 'point', 'description', 'site', 'tenant', 'lat', 'lon', 'tags', 'custom_fields', 'created', 'last_updated',)

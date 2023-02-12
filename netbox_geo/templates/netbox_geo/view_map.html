@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Markers Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="{% static 'map.css' %}" />
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet/dist/leaflet.css" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js" crossorigin=""></script>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script src="{% static 'map.js' %}" defer></script>
+  </body>
+</html>
+

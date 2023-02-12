@@ -1,0 +1,33 @@
+{% load helpers %}
+
+<div class="card">
+<h5 class="card-header">
+    Associated Points
+</h5>
+<div class="card-body">
+{% if points %}
+    <table class="table table-hover">
+        <tr>
+            <th>Point ID</th>
+            {% comment %} <th>Start</th>
+            <th>End</th>
+            <th>Status</th>
+            <th>Impact</th> {% endcomment %}
+        </tr>
+        {% for point in points %}
+        <tr>
+            <td>{{point.point|linkify}}</td>
+            {% comment %} <td>{{points.circuitmaintenance.start}}</td>
+            <td>{{maintenance.circuitmaintenance.end}}</td>
+            <td>{% badge maintenance.circuitmaintenance.get_status_display bg_color=maintenance.circuitmaintenance.get_status_color %}</td>
+            <td>{% badge maintenance.get_impact_display bg_color=maintenance.get_impact_color %}</td> {% endcomment %}
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+        <div class="text-muted">
+            None
+        </div>
+    {% endif %}
+    </div>
+</div>

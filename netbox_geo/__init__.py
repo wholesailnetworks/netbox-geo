@@ -14,6 +14,6 @@ class geoConfig(PluginConfig):
     description = 'Netbox GeoDjango Plugin for visualizing sites, cables, circuits, etc.'
     version = 'version'
     base_url = 'netbox_geo'
-    django_apps = ["django.contrib.gis"] 
+    django_apps = ["django.contrib.gis", "rest_framework_gis"] 
 
 config = geoConfig
